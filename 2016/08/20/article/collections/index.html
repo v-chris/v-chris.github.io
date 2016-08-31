@@ -1,0 +1,1090 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="2016 年 8 月 28 日前微博收藏
+How Image Degradations Affect Deep CNN-based Face Recognition? 答案是影响很大，文章有一定的启发意义。
+
+Formulating The ReLU 从 ReL, Sigmoid 讲到 ReLU。
+
+NN++: A small and easy to use neural net implemen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="收藏夹整理">
+<meta property="og:url" content="http://yoursite.com/2016/08/20/article/collections/index.html">
+<meta property="og:site_name" content="Chris's Notes">
+<meta property="og:description" content="2016 年 8 月 28 日前微博收藏
+How Image Degradations Affect Deep CNN-based Face Recognition? 答案是影响很大，文章有一定的启发意义。
+
+Formulating The ReLU 从 ReL, Sigmoid 讲到 ReLU。
+
+NN++: A small and easy to use neural net implemen">
+<meta property="og:updated_time" content="2016-08-29T05:59:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="收藏夹整理">
+<meta name="twitter:description" content="2016 年 8 月 28 日前微博收藏
+How Image Degradations Affect Deep CNN-based Face Recognition? 答案是影响很大，文章有一定的启发意义。
+
+Formulating The ReLU 从 ReL, Sigmoid 讲到 ReLU。
+
+NN++: A small and easy to use neural net implemen">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6290405842793530000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/20/article/collections/"/>
+
+  <title> 收藏夹整理 | Chris's Notes </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chris's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'vWocM3XbKMp_7UJo5Y2m','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                收藏夹整理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-20T22:13:35+08:00" content="2016-08-20">
+              2016-08-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/20/article/collections/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/20/article/collections/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/20/article/collections/" class="leancloud_visitors" data-flag-title="收藏夹整理">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="2016-年-8-月-28-日前"><a href="#2016-年-8-月-28-日前" class="headerlink" title="2016 年 8 月 28 日前"></a>2016 年 8 月 28 日前</h1><h2 id="微博收藏"><a href="#微博收藏" class="headerlink" title="微博收藏"></a>微博收藏</h2><ol>
+<li><p><a href="http://arxiv.org/abs/1608.05246" target="_blank" rel="external">How Image Degradations Affect Deep CNN-based Face Recognition?</a> 答案是影响很大，文章有一定的启发意义。</p>
+</li>
+<li><p><a href="http://www.jefkine.com/general/2016/08/24/formulating-the-relu/" target="_blank" rel="external">Formulating The ReLU</a> 从 ReL, Sigmoid 讲到 ReLU。</p>
+</li>
+<li><p><a href="https://github.com/stagadish/NNplusplus" target="_blank" rel="external">NN++: A small and easy to use neural net implementation for C++</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1608.07249" target="_blank" rel="external">Benchmarking State-of-the-Art Deep Learning Software Tools</a></p>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><p><a href="https://github.com/liuzhuang13/DenseNet" target="_blank" rel="external">Densely Connected Convolutional Network (DenseNet)</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650718597&amp;idx=1&amp;sn=56aa4e5deff99620fe6ed42000903849" target="_blank" rel="external">深度 | Facebook的图像识别很强大，一次开源了三款机器视觉工具（附论文）</a></p>
+</li>
+<li><p><a href="https://github.com/jcjohnson/cnn-vis" target="_blank" rel="external">CNN-VIS: Use CNNs to generate images</a></p>
+</li>
+<li><p><a href="http://weibo.com/p/1001603872716121085376" target="_blank" rel="external">法令纹，苹果肌，大小眼，桃花眼，脸部弹性等等等的脸部运动</a></p>
+</li>
+<li><p><a href="https://freedom-to-tinker.com/blog/randomwalker/language-necessarily-contains-human-biases-and-so-will-machines-trained-on-language-corpora/" target="_blank" rel="external">Language necessarily contains human biases, and so will machines trained on language corpora</a></p>
+</li>
+<li><p><a href="http://inconvergent.net/generative/sand-glyphs/" target="_blank" rel="external">SAND GLYPHS: 字体生成</a>. GitHub: <a href="https://github.com/inconvergent/sand-glyphs" target="_blank" rel="external">sand-glyphs</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1604.08610" target="_blank" rel="external">Artistic style transfer for videos</a></p>
+</li>
+<li><p><a href="https://github.com/manuelruder/artistic-videos" target="_blank" rel="external">Torch implementation for the paper “Artistic style transfer for videos”</a></p>
+</li>
+<li><p><a href="https://medium.com/artifacia/learn-deep-learning-the-hard-way-e5d844f9fbc1#.k6s71oc8b" target="_blank" rel="external">Learn Deep Learning the Hard Way</a></p>
+</li>
+<li><p><a href="http://weibo.com/ttarticle/p/show?id=2309351000224012086425432327&amp;u=3291374494&amp;m=4012482936857813&amp;cu=3291374494&amp;ru=1402400261&amp;rm=4012093126555546" target="_blank" rel="external">Pedro Domingos深度解析机器学习五大流派中主算法精髓</a></p>
+</li>
+<li><p><a href="https://www.analyticsvidhya.com/blog/2016/08/beginners-guide-to-topic-modeling-in-python/" target="_blank" rel="external">Beginners Guide to Topic Modeling in Python</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/22162380" target="_blank" rel="external">基于回归的统一关键点检测模型</a></p>
+</li>
+<li><p><a href="http://www.csuldw.com/2016/08/23/2016-08-23-vc-dimentions/" target="_blank" rel="external">Computational Learning Theory - VC Dimension (计算学习理论中文)</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1608.06048" target="_blank" rel="external">Survey of resampling techniques for improving classification performance in unbalanced datasets</a></p>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/Hype_cycle" target="_blank" rel="external">Hype cycle - wikipedia</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1608.04980" target="_blank" rel="external">Mollifying Networks</a></p>
+</li>
+<li><p><a href="http://wangzhongyuan.com/tutorial/ACL2016/Understanding-Short-Texts/" target="_blank" rel="external">ACL 2016 Tutorial: Understanding Short Texts</a></p>
+</li>
+<li><p><a href="https://github.com/cszn/DnCNN" target="_blank" rel="external">Beyond a Gaussian Denoiser: Residual Learning of Deep CNN for Image Denoising</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA5NzkxMzg1Nw==&amp;mid=2653160385&amp;idx=1&amp;sn=0221c084b185209bab6668645e4fd24f" target="_blank" rel="external">Twitter机器学习平台的设计与搭建</a></p>
+</li>
+<li><p><a href="https://github.com/shagunsodhani/papers-I-read" target="_blank" rel="external">I am trying a new initiative - a-paper-a-week</a></p>
+</li>
+<li><p><a href="http://cs.nyu.edu/~mathieu/iclr2016.html" target="_blank" rel="external">Deep multi-scale video prediction beyond mean square error</a></p>
+</li>
+<li><p><a href="http://blog.just4fun.site/create-a-smart-chat-bot.html" target="_blank" rel="external">构建自己的智能聊天机器人</a></p>
+</li>
+<li><p><a href="http://www.cnblogs.com/xbinworld/p/4266146.html" target="_blank" rel="external">随机采样方法整理与讲解（MCMC、Gibbs Sampling等）</a></p>
+</li>
+<li><p><a href="http://geek.csdn.net/news/detail/94963" target="_blank" rel="external">Github上Stars最多的53个深度学习项目，TensorFlow遥遥领先</a></p>
+</li>
+<li><p><a href="http://deeplearning4j.org/visualization#updates" target="_blank" rel="external">How to Visualize, Monitor and Debug Neural Network Learning</a></p>
+</li>
+<li><p><a href="https://medium.com/@camrongodbout/recurrent-neural-networks-for-beginners-7aca4e933b82#.crsvaiyz4" target="_blank" rel="external">Recurrent Neural Networks for Beginners</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzAxMzc2NDAxOQ==&amp;mid=2650359124&amp;idx=1&amp;sn=20af143cddb58708800f69e935ec0da6" target="_blank" rel="external">深度 | Google Brain研究工程师：为什么随机性对于深度学习如此重要？</a></p>
+</li>
+<li><p><a href="https://github.com/eladhoffer/convNet.torch" target="_blank" rel="external">Convolutional network training using Torch | 从 AlexNet 到 ResNet 各种 models</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650718229&amp;idx=3&amp;sn=bb2fd16046e6e08bea612a5f7fd0f2dd" target="_blank" rel="external">业界 | 用于视觉任务的 CNN 为何能在听觉任务上取得成功？</a></p>
+</li>
+<li><p><a href="http://faculty.washington.edu/ezivot/econ583/convergenceConcepts.pdf" target="_blank" rel="external">Understanding Convergence Concepts: A Visual-Minded and<br>Graphical Simulation-Based Approach</a> <a href="http://www.biostatisticien.eu/ConvergenceConcepts/" target="_blank" rel="external">R Package</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1511.06422" target="_blank" rel="external">All you need is a good init</a></p>
+</li>
+<li><p><a href="https://github.com/ducha-aiki/LSUVinit" target="_blank" rel="external">Layer-sequential unit-variance (LSUV) initialization</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzA5NzkxMzg1Nw==&amp;mid=2653160371&amp;idx=1&amp;sn=7697750472071a08d542ab45ca451112" target="_blank" rel="external">用一张动图诠释效果，深入浅出推荐系统原理</a></p>
+</li>
+<li><p><a href="https://github.com/bamos/dcgan-completion.tensorflow" target="_blank" rel="external">Image Completion with Deep Learning in TensorFlow</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1607.07539" target="_blank" rel="external">Semantic Image Inpainting with Perceptual and Contextual Losses</a></p>
+</li>
+<li><p><a href="Second place solution for Facebook V competition on Kaggle">Second place solution for Facebook V competition on Kaggle</a></p>
+</li>
+<li><p><a href="https://github.com/jrbtaylor/visual-attention" target="_blank" rel="external">Torch implementation of “Multiple Object Recognition with Visual Attention” on Kaggle Cats vs Dogs dataset</a></p>
+</li>
+<li><p><a href="http://blog.revolutionanalytics.com/2016/08/deep-learning-part-1.html" target="_blank" rel="external">Deep Learning Part 1: Comparison of Symbolic Deep Learning Frameworks</a></p>
+</li>
+<li><p><a href="https://github.com/fchollet/deep-learning-models" target="_blank" rel="external">Keras code and weights files for popular deep learning models.</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1512.07962" target="_blank" rel="external">Bridging the Gap between Stochastic Gradient MCMC and Stochastic Optimization</a> <a href="https://github.com/cchangyou/Santa" target="_blank" rel="external">Github</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1608.02128" target="_blank" rel="external">欺骗人脸识别系统：Spoofing 2D Face Detection: Machines See People Who Aren’t There</a></p>
+</li>
+<li><p><a href="https://blog.init.ai/icml-2016-memory-networks-for-language-understanding-f2ed4c8819c4#.yu41zvsxh" target="_blank" rel="external">ICML 2016: Memory Networks for Language Understanding</a></p>
+</li>
+<li><p><a href="http://weibo.com/ttarticle/p/show?id=2309614002124106224055&amp;u=3291374494&amp;m=4003416725903653&amp;cu=3291374494&amp;ru=1402400261&amp;rm=4002122162679392" target="_blank" rel="external">【揭秘】PRISMA背后的人工智能大概是这么玩的</a></p>
+</li>
+<li><p><a href="https://medium.com/technologymadeeasy/the-best-explanation-of-convolutional-neural-networks-on-the-internet-fbb8b1ad5df8#.knubw17d3" target="_blank" rel="external">The best explanation of Convolutional Neural Networks on the Internet!</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1603.06042" target="_blank" rel="external">Globally Normalized Transition-Based Neural Networks</a></p>
+</li>
+</ol>
+<h2 id="微信收藏"><a href="#微信收藏" class="headerlink" title="微信收藏"></a>微信收藏</h2><ol>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650718160&amp;idx=3&amp;sn=a2114e3324f28740d2603da26fbbdfb4&amp;scene=21#wechat_redirect" target="_blank" rel="external">业界 | 五大主流深度学习框架比较分析：MXNET是最好选择</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650718634&amp;idx=1&amp;sn=1220e691541c34281c64655a01793cb0" target="_blank" rel="external">深度 | 深度学习系列文章Part2：迁移学习和微调深度卷积神经网络（附论文）</a></p>
+</li>
+<li><p><a href="http://blog.revolutionanalytics.com/2016/08/deep-learning-part-2.html" target="_blank" rel="external">Deep Learning Part 2: Transfer Learning and Fine-tuning Deep Convolutional Neural Networks</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650718634&amp;idx=3&amp;sn=fa043de0a6d4afb1620d5107a5bdde62" target="_blank" rel="external">业界 | 从机器翻译到云视觉，谷歌的7大机器学习应用</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/22143664" target="_blank" rel="external">最前沿：神经网络训练方法大革新，反向传播训练不再唯一</a> 反向传播？人脑真的是这样做的吗？还能怎么做？预测梯度。用什么预测？另一组神经网络。戳论文：<a href="https://arxiv.org/pdf/1608.05343.pdf" target="_blank" rel="external">Decoupled Neural Interfaces using Synthetic Gradients</a></p>
+</li>
+</ol>
+<p>6.</p>
+<h1 id="2016-年-8-月-20-日前"><a href="#2016-年-8-月-20-日前" class="headerlink" title="2016 年 8 月 20 日前"></a>2016 年 8 月 20 日前</h1><h2 id="微信收藏-1"><a href="#微信收藏-1" class="headerlink" title="微信收藏"></a>微信收藏</h2><ol>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650716942&amp;idx=3&amp;sn=0d48c0218131de502ac5e2ef9b700967&amp;scene=21#wechat_redirect" target="_blank" rel="external">fastText 论文中文</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzI1NTE4NTUwOQ==&amp;mid=2650325311&amp;idx=1&amp;sn=fa4cedfffe6cd0ecd0158fd60ad5d95d&amp;scene=0#rd" target="_blank" rel="external">RNN 中文</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzI1NTE4NTUwOQ==&amp;mid=2650325281&amp;idx=1&amp;sn=97779ff0da06190d6a71d33f23e9dede&amp;scene=0#rd" target="_blank" rel="external">多任务 DNN</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5NzA1MTcyMA==&amp;mid=204674195&amp;idx=2&amp;sn=c10f580c0b81e4f2f84ef28dbd53822a&amp;scene=2&amp;from=timeline&amp;isappinstalled=0#rd" target="_blank" rel="external">编程能力层次模型</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;mid=2652840140&amp;idx=1&amp;sn=66b34cba4530b81164fb14c43885d55c&amp;scene=1&amp;srcid=0505QQNhRt5YMAeZtitNf3jy#rd" target="_blank" rel="external">极客研报｜国内人工智能行业全梳理（内附 PDF 版）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&amp;mid=2651982401&amp;idx=1&amp;sn=c65fa1ac426bb9789f76832686295728&amp;scene=0#rd" target="_blank" rel="external">Google开源全球最精准自然语言解析器SyntaxNet</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5ODIzNDQ3Mw==&amp;mid=2649965509&amp;idx=1&amp;sn=4e12f2ff61eb3efce7064efef1ffd737&amp;scene=0#rd" target="_blank" rel="external">机器学习专家带你实践LSTM语言模型</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzQ4OTE5Mg==&amp;mid=2654429642&amp;idx=1&amp;sn=c3229a3ab43230afa3142213864c9774&amp;scene=0#rd" target="_blank" rel="external">科技与贫穷：这个世界真的会更好吗？</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&amp;mid=2651983217&amp;idx=1&amp;sn=687af43243a0197cd7aa76745ade3992&amp;scene=0#rd" target="_blank" rel="external">ICML 2016 谷歌 DeepMind 论文上辑（大咖点评附下载）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&amp;mid=2651983248&amp;idx=1&amp;sn=4e96e852b65141c511320822e0c9bd6a&amp;scene=0#rd" target="_blank" rel="external">【ICML2016】谷歌 DeepMind 论文下辑（肖京点评附下载）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzAxNzMxMjE3Mg==&amp;mid=2650470550&amp;idx=1&amp;sn=4d3581436ba39348d3a4b84b5b66e4b8&amp;scene=0#rd" target="_blank" rel="external">关注词汇的具象含义，读外刊会更轻松</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650716292&amp;idx=1&amp;sn=a7ac3a14c95d1a5392bd2e78552e3268&amp;scene=0#rd" target="_blank" rel="external">深度 | 计算机视觉和深度学习领域，被引用次数最多的三十篇论文（附下载）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTA1MDUyMA==&amp;mid=2655436163&amp;idx=2&amp;sn=24bdc441d1a9dcb0661fcf950e646d75&amp;scene=0#rd" target="_blank" rel="external">一个简单奇怪的学习技巧，可以帮助你学习任何东西</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3NDU3MTc1Ng==&amp;mid=2651165778&amp;idx=1&amp;sn=2f2d8f6b7a11d381a4290a20817b46a2&amp;scene=2&amp;srcid=0622j7ndp6esxrEx2LBYJOSi#rd" target="_blank" rel="external">【技术共享】怎么把人脸检测的速度做到极致</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&amp;mid=2651983580&amp;idx=1&amp;sn=64523a41d6a20be8809e616869b40f98&amp;scene=0#rd" target="_blank" rel="external">【重磅】深度学习难以加冕算法之王 3 大根本原因</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650716392&amp;idx=1&amp;sn=b8127c73f3c83ed67abb198cb40761c6&amp;scene=0#rd" target="_blank" rel="external">深度 | ICCV研讨会：实时SLAM的未来以及深度学习与SLAM的比较（附论文和PPT）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650716475&amp;idx=1&amp;sn=2b03deead0c1e63be80fdc239293e805&amp;scene=0#rd" target="_blank" rel="external">深度 | Nature论文详解概率机器学习：从不确定性表征到自动建模（附论文）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=OTE4MzAyODYx&amp;mid=2652194744&amp;idx=2&amp;sn=208d2fa5e5f53ffee86a612d4f6e2aaa&amp;scene=0#rd" target="_blank" rel="external">冥想如何影响大脑？丨壹读精选</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5MTQzNzU2NA==&amp;mid=2651642229&amp;idx=1&amp;sn=b646a00031a90bc24ab82075e7e92a2e&amp;scene=0#rd" target="_blank" rel="external">【推荐】BBC经典系列纪录片《数学的故事》</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650716701&amp;idx=1&amp;sn=b37b762acde25c7ca093dcb628a15217&amp;scene=0#rd" target="_blank" rel="external">深度 | 在测试阶段使用Dropout获取输出的概率分布，让深度学习系统更聪明（附论文）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5MTQzNzU2NA==&amp;mid=2651642282&amp;idx=2&amp;sn=9ebd24dcde93b29e8fd83d75e6b9b08e&amp;scene=0#rd" target="_blank" rel="external">半分钟内能看透问题本质的人是如何思考的？</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA5NDkzNjIwMg==&amp;mid=2651657160&amp;idx=1&amp;sn=cdfb53567d11df8eef1a1dd6a0ab4fb7&amp;scene=0#rd" target="_blank" rel="external">当你睡觉时，你的大脑在“排毒”</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzAxNzMxMjE3Mg==&amp;mid=2650470680&amp;idx=1&amp;sn=f832b6a8b201f702ad117e7bb8990177&amp;scene=0#rd" target="_blank" rel="external">这几个坏习惯，导致你读不懂英语文章</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTA1MDUyMA==&amp;mid=2655436323&amp;idx=2&amp;sn=d3122f734e15473d21b0f32e5c400f40&amp;scene=0#rd" target="_blank" rel="external">6 种 Python 数据可视化工具</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5ODIzNDQ3Mw==&amp;mid=2649965669&amp;idx=1&amp;sn=297fa2d2b48c4a46135aeaa73d2d437a&amp;scene=0#rd" target="_blank" rel="external">大数据处理平滑算法：Good-Turing估计</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650717046&amp;idx=1&amp;sn=479d238b6b1340989358ef0168883f47&amp;scene=0#rd" target="_blank" rel="external">深度 | 给默片配音、自动生成手写体，盘点8个最具启发意义的深度学习应用（附论文）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTA1MDUyMA==&amp;mid=2655436371&amp;idx=2&amp;sn=c51bda1d2b0385b080da1fffd98e69e6&amp;scene=0#rd" target="_blank" rel="external">Python 基础：分分钟入门</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzAxMzc2NDAxOQ==&amp;mid=2650358864&amp;idx=3&amp;sn=ca1618e988c4f9afb74b0cac14a2082d&amp;scene=1&amp;srcid=0721rYuzxNIxdJmhNUv1X5mt#rd" target="_blank" rel="external">回顾 | 如何让飘在半空的计算机视觉技术与需求落地？</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzI1NTE4NTUwOQ==&amp;mid=2650325171&amp;idx=1&amp;sn=e721c69dffb6e4bb873b2c9f513e3a00&amp;scene=1&amp;srcid=07261XQKAGzCHyjnounUHmNy#rd" target="_blank" rel="external">Bengio教授的深度学习终极思考：文化、进化与迷因</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzAxMzc2NDAxOQ==&amp;mid=2650358955&amp;idx=1&amp;sn=3d108d31c125be892280be4b3fa57b05&amp;scene=0#rd" target="_blank" rel="external">《机器智能的未来》系列八：Gurjeet Singh–使用拓扑学揭示数据形态 | 将门推荐</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzAwMzQ4OTE5Mg==&amp;mid=2654430050&amp;idx=2&amp;sn=ad07339a9a970f7867d9aab56dfdd029&amp;scene=2&amp;srcid=0630f83e2OVolOqwZQu7kHUH#rd" target="_blank" rel="external">【干货】扎克伯格为提高员工工作效率，亲自做了这26张PPT！</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTA1MDUyMA==&amp;mid=2655436471&amp;idx=1&amp;sn=a3bedc1b80aa25bcb02c10c7b0bcea32&amp;scene=0#rd" target="_blank" rel="external">最值得阅读学习的 10 个 C 语言开源项目代码</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&amp;mid=2651985409&amp;idx=1&amp;sn=20cbe3e688db75d4f092628d08df47fe&amp;scene=0#rd" target="_blank" rel="external">专访 Jordan 高徒 Percy Liang：如何开发连续学习的智能体</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTA1MDUyMA==&amp;mid=2655436512&amp;idx=1&amp;sn=78de99850ea3d9ba26917b04bf16efa9&amp;scene=0#rd" target="_blank" rel="external">18 个锻炼编程技能的网站</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650717969&amp;idx=1&amp;sn=712e4880e63db42bcb4db5ba06c9856d&amp;scene=0#rd" target="_blank" rel="external">深度 | 深度学习与神经网络全局概览：核心技术的发展历程</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzAxMzc2NDAxOQ==&amp;mid=2650359124&amp;idx=1&amp;sn=20af143cddb58708800f69e935ec0da6&amp;scene=0#rd" target="_blank" rel="external">深度 | Google Brain研究工程师：为什么随机性对于深度学习如此重要？</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650718229&amp;idx=1&amp;sn=adaf68f2c193028f1c4de5b8d3217cca&amp;scene=0#rd" target="_blank" rel="external">深度 | 如何在 TensorFlow 中用深度学习修复图像？（附论文）</a></p>
+</li>
+<li><p><a href="http://www.cs.cmu.edu/~ILIM/projects/IM/document_rectification/document_rectification.html" target="_blank" rel="external">Rectification and 3D Reconstruction of Curved Document Images</a></p>
+</li>
+</ol>
+<h2 id="微博收藏-1"><a href="#微博收藏-1" class="headerlink" title="微博收藏"></a>微博收藏</h2><ol>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650718466&amp;idx=1&amp;sn=016f111001e8354d49dd4ce279d283cd" target="_blank" rel="external">深度 | 机器学习敲门砖：任何人都能看懂的TensorFlow介绍</a></p>
+</li>
+<li><p><a href="https://medium.com/@khor/the-gentlest-introduction-to-tensorflow-248dc871a224#.otdk6l6ok" target="_blank" rel="external">The Gentlest Introduction to Tensorflow</a></p>
+</li>
+<li><p><a href="https://medium.com/@khor/gentlest-introduction-to-tensorflow-part-2-ed2a0a7a624f#.ayicrxcap" target="_blank" rel="external">Gentlest Introduction to Tensorflow (Part 2)</a></p>
+</li>
+<li><p><a href="http://brohrer.github.io/how_convolutional_neural_networks_work.html" target="_blank" rel="external">How Convolutional Neural Networks Work (用 X 和 O 举例)</a></p>
+</li>
+<li><p><a href="https://gab41.lab41.org/flexible-image-tagging-with-fast0tag-681c6283c9b7#.t9uzn3jk9" target="_blank" rel="external">Flexible Image Tagging with Fast0Tag</a></p>
+</li>
+<li><p><a href="https://pythontips.com/2016/08/19/interesting-python-tutorials/" target="_blank" rel="external">Interesting Python Tutorials</a></p>
+</li>
+<li><p><a href="http://www.hexahedria.com/2015/08/03/composing-music-with-recurrent-neural-networks/" target="_blank" rel="external">Composing Music With Recurrent Neural Networks</a></p>
+</li>
+<li><p><a href="https://github.com/textclf/fancy-cnn" target="_blank" rel="external">fancy-cnn - Sequential convolutional architectures for text classification</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/22067439" target="_blank" rel="external">关于深度学习的机理，优化和网络结构的一些个人观点</a></p>
+</li>
+<li><p><a href="http://dmlc.ml/rstats/2016/08/19/recurrent-models-and-examples-with-mxnet-r.html" target="_blank" rel="external">Recurrent Models and Examples with MXNetR</a></p>
+</li>
+<li><p><a href="https://github.com/facebookresearch/fastText" target="_blank" rel="external">FAIR open-sources fastText | Facebook Code</a></p>
+</li>
+<li><p><a href="http://deeplearning.stanford.edu/tutorial/" target="_blank" rel="external">Stanford Deep Learning Tutorial</a></p>
+</li>
+<li><p><a href="https://www.reddit.com/r/MachineLearning/comments/4ym1kt/convnets_vs_lstms_for_text_classification/" target="_blank" rel="external">ConvNets vs LSTMs for text classification</a></p>
+</li>
+<li><p><a href="https://github.com/ahangchen/GDLnotes" target="_blank" rel="external">Google Tensorflow 深度学习笔记</a></p>
+</li>
+<li><p><a href="http://machinelearningmastery.com/develop-first-xgboost-model-python-scikit-learn/" target="_blank" rel="external">How to Develop Your First XGBoost Model in Python with scikit-learn</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1608.04980" target="_blank" rel="external">Mollifying Networks (2016 paper)</a></p>
+</li>
+<li><p><a href="http://aclweb.org/anthology/W/W16/W16-1609.pdf" target="_blank" rel="external">An Empirical Evaluation of doc2vec with Practical Insights into Document Embedding Generation</a></p>
+</li>
+<li><p><a href="https://code.facebook.com/posts/1438652669495149/fair-open-sources-fasttext" target="_blank" rel="external">FAIR open-sources fastText</a></p>
+</li>
+<li><p><a href="https://github.com/marcotcr/lime-experiments" target="_blank" rel="external">LIME code</a></p>
+</li>
+<li><p><a href="http://arxiv.org/abs/1602.04938" target="_blank" rel="external">“Why Should I Trust You?”: Explaining the Predictions of Any Classifier</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/21341440" target="_blank" rel="external">「无中生有」计算机视觉探奇</a></p>
+</li>
+<li><p><a href="https://github.com/shelhamer/clockwork-fcn" target="_blank" rel="external">Clockwork Convnets for Video Semantic Segmentation</a></p>
+</li>
+<li><p><a href="http://courses.cs.washington.edu/courses/cse599s/14sp/scribes.html" target="_blank" rel="external">Lecture Notes Tabken by Students</a></p>
+</li>
+<li><p><a href="https://github.com/kristjankorjus/applied-deep-learning-resources#vgg" target="_blank" rel="external">Applied deep learning resources</a></p>
+</li>
+<li><p><a href="http://tinyclouds.org/colorize/" target="_blank" rel="external">Automatic Colorization</a></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/18/article/nice-stuff/" rel="next" title="良品杂货铺">
+                <i class="fa fa-chevron-left"></i> 良品杂货铺
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/25/science/densecap-note/" rel="prev" title="Dense Caption 论文笔记（一）—— CNN 部分">
+                Dense Caption 论文笔记（一）—— CNN 部分 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/20/article/collections/"
+           data-title="收藏夹整理" data-url="http://yoursite.com/2016/08/20/article/collections/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Chris" />
+          <p class="site-author-name" itemprop="name">Chris</p>
+          <p class="site-description motion-element" itemprop="description">只问事实是什么，不要被愿望蒙蔽</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/huanglianghua" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://bitbucket.org/huanglianghua" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/HiDeepChris" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/withchris" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-年-8-月-28-日前"><span class="nav-number">1.</span> <span class="nav-text">2016 年 8 月 28 日前</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#微博收藏"><span class="nav-number">1.1.</span> <span class="nav-text">微博收藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信收藏"><span class="nav-number">1.2.</span> <span class="nav-text">微信收藏</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-年-8-月-20-日前"><span class="nav-number">2.</span> <span class="nav-text">2016 年 8 月 20 日前</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#微信收藏-1"><span class="nav-number">2.1.</span> <span class="nav-text">微信收藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微博收藏-1"><span class="nav-number">2.2.</span> <span class="nav-text">微博收藏</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chris</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"huanglianghua"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7eik32CeJNsuqVLmyGKbp15x-gzGzoHsz", "ObNcIpCSgyUYwV2wtjdMyyfV");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+</body>
+</html>

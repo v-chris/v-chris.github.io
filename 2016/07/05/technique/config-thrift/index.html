@@ -1,0 +1,922 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="配置,Thrift," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Thrift 配置Mac 下 Thrift 配置快速安装使用 Mac 的包管理器 Homebrew。首先安装 Homebrew:
+1ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;
+使用 Homebrew 安装 thrift:
+1brew install thrift
+如需手动安装特定版本，请参考">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thrift 配置">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/technique/config-thrift/index.html">
+<meta property="og:site_name" content="Chris's Notes">
+<meta property="og:description" content="Thrift 配置Mac 下 Thrift 配置快速安装使用 Mac 的包管理器 Homebrew。首先安装 Homebrew:
+1ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;
+使用 Homebrew 安装 thrift:
+1brew install thrift
+如需手动安装特定版本，请参考">
+<meta property="og:updated_time" content="2016-08-18T08:32:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Thrift 配置">
+<meta name="twitter:description" content="Thrift 配置Mac 下 Thrift 配置快速安装使用 Mac 的包管理器 Homebrew。首先安装 Homebrew:
+1ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;
+使用 Homebrew 安装 thrift:
+1brew install thrift
+如需手动安装特定版本，请参考">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6290405842793530000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/05/technique/config-thrift/"/>
+
+  <title> Thrift 配置 | Chris's Notes </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chris's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'vWocM3XbKMp_7UJo5Y2m','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Thrift 配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T10:26:20+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术日志/" itemprop="url" rel="index">
+                    <span itemprop="name">技术日志</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/05/technique/config-thrift/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/technique/config-thrift/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/05/technique/config-thrift/" class="leancloud_visitors" data-flag-title="Thrift 配置">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Thrift-配置"><a href="#Thrift-配置" class="headerlink" title="Thrift 配置"></a>Thrift 配置</h1><h2 id="Mac-下-Thrift-配置"><a href="#Mac-下-Thrift-配置" class="headerlink" title="Mac 下 Thrift 配置"></a>Mac 下 Thrift 配置</h2><h3 id="快速安装"><a href="#快速安装" class="headerlink" title="快速安装"></a>快速安装</h3><p>使用 Mac 的包管理器 Homebrew。首先安装 Homebrew:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)</span>"</span></div></pre></td></tr></table></figure>
+<p>使用 Homebrew 安装 thrift:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install thrift</div></pre></td></tr></table></figure>
+<p>如需手动安装特定版本，请参考以下若干小节。</p>
+<a id="more"></a>
+<h3 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h3><p>首先编译安装 Thrift 的依赖 Boost 和 libevent，接着编译安装 Thrift。</p>
+<h4 id="安装-Boost"><a href="#安装-Boost" class="headerlink" title="安装 Boost"></a>安装 Boost</h4><p>在 <a href="http://www.boost.org/" target="_blank" rel="external">boost.org</a> 下载 boost 库，解压进入文件夹，并通过以下命令编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./bootstrap.sh</div><div class="line">sudo ./b2 threading=multi address-model=64 variant=release stage install</div></pre></td></tr></table></figure>
+<p>Boost 库是对 C++ 标准库提供扩展的一些 C++ 程序库的总称。</p>
+<h4 id="安装-libevent"><a href="#安装-libevent" class="headerlink" title="安装 libevent"></a>安装 libevent</h4><p>在 <a href="http://libevent.org/" target="_blank" rel="external">libevent.org</a> 下载 libevent, 解压并通过如下命令编译安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=/usr/<span class="built_in">local</span></div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<p>libevent 是用 C 语言编写的、轻量级开源高性能网络库，基于事件驱动且支持跨平台。</p>
+<h4 id="安装-Apache-Thrift"><a href="#安装-Apache-Thrift" class="headerlink" title="安装 Apache Thrift"></a>安装 Apache Thrift</h4><p>下载最新版本的 <a href="https://thrift.apache.org/download" target="_blank" rel="external">Apache Thrift</a>，解压并通过如下命令编译安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/  \</div><div class="line">--with-boost=/usr/<span class="built_in">local</span>           \</div><div class="line">--with-libevent=/usr/<span class="built_in">local</span>        \</div><div class="line">--without-ruby <span class="comment">## 不需要的语言可以通过 --without-[language] 去掉</span></div></pre></td></tr></table></figure>
+<p>运行时可能会报错：<code>Bison version 2.5 or higher must be installed on the system!</code>。参考 <a href="http://stackoverflow.com/questions/31805431/how-to-install-bison-on-mac-osx" target="_blank" rel="external">How to install bison on mac OSX</a> 解决：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew install bison</div><div class="line">brew link bison --force</div></pre></td></tr></table></figure>
+<p><code>brew link bison</code> 是在系统路径下添加 bison 的 symlinks。在装完 thrift 之后记得：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew unlink bison</div></pre></td></tr></table></figure>
+<h2 id="Ubuntu-下-Thrift-配置"><a href="#Ubuntu-下-Thrift-配置" class="headerlink" title="Ubuntu 下 Thrift 配置"></a>Ubuntu 下 Thrift 配置</h2><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p>[1] <a href="https://thrift.apache.org/docs/install/debian" target="_blank" rel="external">Debian/Ubuntu install</a><br>[2] <a href="https://thrift.apache.org/docs/BuildingFromSource" target="_blank" rel="external">Building from source</a><br>[3] <a href="https://thrift.apache.org/tutorial/" target="_blank" rel="external">Apache Thrift Tutorial</a></p>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>执行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install automake bison flex g++ git libboost1.55-all-dev libevent-dev libssl-dev libtool make pkg-config</div></pre></td></tr></table></figure>
+<h3 id="安装-Thrift"><a href="#安装-Thrift" class="headerlink" title="安装 Thrift"></a>安装 Thrift</h3><p>在 <a href="https://thrift.apache.org/download" target="_blank" rel="external">Thrift 官网</a> 下载最新的打包文件，解压后进入文件夹，输入如下命令编译安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure &amp;&amp; make &amp;&amp; sudo make install</div></pre></td></tr></table></figure>
+<h1 id="Thrift-C-实例"><a href="#Thrift-C-实例" class="headerlink" title="Thrift C++ 实例"></a>Thrift C++ 实例</h1><h2 id="基本过程"><a href="#基本过程" class="headerlink" title="基本过程"></a>基本过程</h2><ol>
+<li>编写接口描述文件 calculator.thrift，定义数据类型和服务接口</li>
+<li>编译 demo.thrift 生成 gen-cpp 源代码文件夹</li>
+<li>编写 server 代码，引用 gen-cpp 与 thrift 库目录编译</li>
+<li>编写 client 代码，引用 gen-cpp 与 thrift 库目录编译</li>
+<li>运行 ./server</li>
+<li>运行 ./client</li>
+</ol>
+<h2 id="Thrift-脚本"><a href="#Thrift-脚本" class="headerlink" title="Thrift 脚本"></a>Thrift 脚本</h2><p>假设服务端（Server）为客户端（Client）提供简单的数学运算功能，编写 calculator.thrift 脚本文件如下：</p>
+<figure class="highlight thrift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">namespace cpp MathServer</div><div class="line"></div><div class="line">service MathService&#123;</div><div class="line">        i32 add (1:i32 a, 2:i32 b),</div><div class="line">        i32 sub (1:i32 a, 2:i32 b),</div><div class="line">        i32 mul (1:i32 a, 2:i32 b),</div><div class="line">        i32 div (1:i32 a, 2:i32 b),</div><div class="line">        i32 mod (1:i32 a, 2:i32 b)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译 Thrift 脚本的基本命令格式为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">thrift --gen &lt;language&gt; &lt;Thrift filename&gt;</div></pre></td></tr></table></figure>
+<p>如果在一个 .thrift 文件里包含了其他的 .thrift 文件，需要递归编译，执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">thrift --gen -r &lt;language&gt; &lt;Thrift filename&gt;</div></pre></td></tr></table></figure>
+<p>为了测试 C++ 版本，执行如下命令编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">thrift --gen cpp calculator.thrift</div></pre></td></tr></table></figure>
+<p>即可在当前目录下生成一个 gen-cpp 文件夹。文件夹里包含 MathService.h/cpp, calculator_constants.h/cpp, calculator_types.h/cpp 和 MathService_server.skeleton.cpp 7 个文件。前 6 个文件用于接口定义，需要同时被 Client 和 Server 代码引用（调用或实现），而 MathService_server.skeleton.cpp 则提供了 Server 端代码的一个基本框架。</p>
+<h2 id="Server-程序"><a href="#Server-程序" class="headerlink" title="Server 程序"></a>Server 程序</h2><p>新建 calculator 文件夹，把 gen-cpp 复制进去，并将 gen-cpp 里的 MathService_server.skeleton.cpp 重命名为 server.cpp，移动到 server 文件夹。实现 server.cpp 后的完整代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// This autogenerated skeleton file illustrates how to build a server.</span></div><div class="line"><span class="comment">// You should copy it to another filename to avoid overwriting it.</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"gen-cpp/MathService.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thrift/protocol/TBinaryProtocol.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thrift/server/TSimpleServer.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thrift/transport/TServerSocket.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thrift/transport/TBufferTransports.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> ::apache::thrift;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> ::apache::thrift::protocol;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> ::apache::thrift::transport;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> ::apache::thrift::server;</div><div class="line"></div><div class="line"><span class="keyword">using</span> boost::<span class="built_in">shared_ptr</span>;</div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span>  ::MathServer;</div><div class="line"></div><div class="line"><span class="keyword">class</span> MathServiceHandler : <span class="keyword">virtual</span> <span class="keyword">public</span> MathServiceIf &#123;</div><div class="line"> <span class="keyword">public</span>:</div><div class="line">  MathServiceHandler() &#123;</div><div class="line">    <span class="comment">// Your initialization goes here</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">int32_t</span> add(<span class="keyword">const</span> <span class="keyword">int32_t</span> a, <span class="keyword">const</span> <span class="keyword">int32_t</span> b) &#123;</div><div class="line">	  <span class="keyword">return</span> a + b;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">int32_t</span> sub(<span class="keyword">const</span> <span class="keyword">int32_t</span> a, <span class="keyword">const</span> <span class="keyword">int32_t</span> b) &#123;</div><div class="line">	  <span class="keyword">return</span> a - b;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">int32_t</span> mul(<span class="keyword">const</span> <span class="keyword">int32_t</span> a, <span class="keyword">const</span> <span class="keyword">int32_t</span> b) &#123;</div><div class="line">	  <span class="keyword">return</span> a * b;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">int32_t</span> div(<span class="keyword">const</span> <span class="keyword">int32_t</span> a, <span class="keyword">const</span> <span class="keyword">int32_t</span> b) &#123;</div><div class="line">	  <span class="keyword">return</span> a / b;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">int32_t</span> mod(<span class="keyword">const</span> <span class="keyword">int32_t</span> a, <span class="keyword">const</span> <span class="keyword">int32_t</span> b) &#123;</div><div class="line">	  <span class="keyword">return</span> a % b;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span> </span>&#123;</div><div class="line">  <span class="keyword">int</span> port = <span class="number">9090</span>;</div><div class="line">  <span class="built_in">shared_ptr</span>&lt;MathServiceHandler&gt; handler(<span class="keyword">new</span> MathServiceHandler());</div><div class="line">  <span class="built_in">shared_ptr</span>&lt;TProcessor&gt; processor(<span class="keyword">new</span> MathServiceProcessor(handler));</div><div class="line">  <span class="built_in">shared_ptr</span>&lt;TServerTransport&gt; serverTransport(<span class="keyword">new</span> TServerSocket(port));</div><div class="line">  <span class="built_in">shared_ptr</span>&lt;TTransportFactory&gt; transportFactory(<span class="keyword">new</span> TBufferedTransportFactory());</div><div class="line">  <span class="built_in">shared_ptr</span>&lt;TProtocolFactory&gt; protocolFactory(<span class="keyword">new</span> TBinaryProtocolFactory());</div><div class="line"></div><div class="line">  <span class="function">TSimpleServer <span class="title">server</span><span class="params">(processor, serverTransport, transportFactory, protocolFactory)</span></span>;</div><div class="line"></div><div class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Start server..."</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">  server.serve();</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Client-程序"><a href="#Client-程序" class="headerlink" title="Client 程序"></a>Client 程序</h2><p>在 calculator 文件夹里新建 client.cpp 文件，代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thrift/protocol/TBinaryProtocol.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thrift/transport/TSocket.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thrift/transport/TTransportUtils.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"gen-cpp/MathService.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> apache::thrift;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> apache::thrift::protocol;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> apache::thrift::transport;</div><div class="line"></div><div class="line"><span class="keyword">using</span> boost::<span class="built_in">shared_ptr</span>;</div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span>  ::MathServer;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span> </span>&#123;</div><div class="line">  <span class="keyword">int</span> port = <span class="number">9090</span>;</div><div class="line">  boost::<span class="built_in">shared_ptr</span>&lt;TTransport&gt; socket(<span class="keyword">new</span> TSocket(<span class="string">"localhost"</span>, port));</div><div class="line">  boost::<span class="built_in">shared_ptr</span>&lt;TTransport&gt; transport(<span class="keyword">new</span> TBufferedTransport(socket));</div><div class="line">  boost::<span class="built_in">shared_ptr</span>&lt;TProtocol&gt; protocol(<span class="keyword">new</span> TBinaryProtocol(transport));</div><div class="line">  <span class="function">MathServiceClient <span class="title">client</span><span class="params">(protocol)</span></span>;</div><div class="line"></div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">      transport-&gt;open();</div><div class="line"></div><div class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"1 + 1 = "</span> &lt;&lt; client.add(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"1 * 2 = "</span> &lt;&lt; client.mul(<span class="number">1</span>, <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"8 / 2 = "</span> &lt;&lt; client.div(<span class="number">8</span>, <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">      transport-&gt;close();</div><div class="line">    &#125; <span class="keyword">catch</span> (TException&amp; tx) &#123;</div><div class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"ERROR: "</span> &lt;&lt; tx.what() &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>用 g++ 编译，先针对各个 .cpp 文件生成 .o 目标，然后链接 thrift 库，生成可执行文件 client 和 server。由于 thrift 里用到 c++11 里的 bind 方法，需要指定 <code>-std=c++11</code>。假设 thrift 库安装在 /usr/local/lib 里，thrift 的头文件在 /usr/local/include/thrift 中，则完整的编译命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># build object files</span></div><div class="line">g++ -I/usr/<span class="built_in">local</span>/include -std=c++11 -c -o \</div><div class="line">    gen-cpp/calculator_constants.o gen-cpp/calculator_constants.cpp</div><div class="line">g++ -I/usr/<span class="built_in">local</span>/include -std=c++11 -c -o \</div><div class="line">    gen-cpp/calculator_types.o gen-cpp/calculator_types.cpp</div><div class="line">g++ -I/usr/<span class="built_in">local</span>/include -std=c++11 -c -o \</div><div class="line">    gen-cpp/MathService.o gen-cpp/MathService.cpp</div><div class="line"></div><div class="line"><span class="comment"># build server.o</span></div><div class="line">g++ -I/usr/<span class="built_in">local</span>/include -std=c++11 -c -o \</div><div class="line">    server.o server.cpp</div><div class="line"></div><div class="line"><span class="comment"># build client.o</span></div><div class="line">g++ -I/usr/<span class="built_in">local</span>/include -std=c++11 -c -o \</div><div class="line">    client.o client.cpp</div><div class="line"></div><div class="line"><span class="comment"># build target files: client, server</span></div><div class="line">g++ -L/usr/<span class="built_in">local</span>/lib -lthrift -o server server.o \</div><div class="line">    gen-cpp/calculator_constants.o gen-cpp/calculator_types.o \</div><div class="line">    gen-cpp/MathService.o</div><div class="line">g++ -L/usr/<span class="built_in">local</span>/lib -lthrift -o client client.o \</div><div class="line">    gen-cpp/calculator_constants.o gen-cpp/calculator_types.o \</div><div class="line">    gen-cpp/MathService.o</div><div class="line"></div><div class="line"><span class="comment"># clear *.o</span></div><div class="line">rm ./*.o gen-cpp/*.o</div></pre></td></tr></table></figure>
+<p>可以直接执行以上命令，也可以将以上命令写进一个 build.sh 文件里，然后执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh ./build.sh</div></pre></td></tr></table></figure>
+<p>生成完 client 和 server 后，分别在两个终端执行 <code>./server</code> 和 <code>./client</code>，可以分别看到 <code>Start server...</code> 和 <code>1 + 1 = 2 ...</code>。</p>
+<p>综上。</p>
+<h1 id="Thrift-脚本语法"><a href="#Thrift-脚本语法" class="headerlink" title="Thrift 脚本语法"></a>Thrift 脚本语法</h1><p>Thrift 用于跨语言的 RPC 通信，因此其接口定义文件 <code>*.thrift</code> 中包含的数据结构与函数定义必须对于不同语言都适用。官网的 <a href="http://wiki.apache.org/thrift/Tutorial" target="_blank" rel="external">Thrift Wiki Tutorial</a> 基本包含了所有的 Thrift 语法，无须赘述，这里只是把它复制过来：</p>
+<figure class="highlight thrift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div></pre></td><td class="code"><pre><div class="line">#</div><div class="line"># Thrift Tutorial</div><div class="line"># Mark Slee (mcslee@facebook.com)</div><div class="line">#</div><div class="line"># This file aims to teach you how to use Thrift, in a .thrift file. Neato. The</div><div class="line"># first thing to notice is that .thrift files support standard shell comments.</div><div class="line"># This lets you make your thrift file executable and include your Thrift build</div><div class="line"># step on the top line. And you can place comments like this anywhere you like.</div><div class="line">#</div><div class="line"># Before running this file, you will need to have installed the thrift compiler</div><div class="line"># into /usr/local/bin.</div><div class="line"></div><div class="line">/**</div><div class="line"> * The first thing to know about are types. The available types in Thrift are:</div><div class="line"> *</div><div class="line"> *  bool        Boolean, one byte</div><div class="line"> *  byte        Signed byte</div><div class="line"> *  i16         Signed 16-bit integer</div><div class="line"> *  i32         Signed 32-bit integer</div><div class="line"> *  i64         Signed 64-bit integer</div><div class="line"> *  double      64-bit floating point value</div><div class="line"> *  string      String</div><div class="line"> *  map&lt;t1,t2&gt;  Map from one type to another</div><div class="line"> *  list&lt;t1&gt;    Ordered list of one type</div><div class="line"> *  set&lt;t1&gt;     Set of unique elements of one type</div><div class="line"> *</div><div class="line"> * Did you also notice that Thrift supports C style comments?</div><div class="line"> */</div><div class="line"></div><div class="line">// Just in case you were wondering... yes. We support simple C comments too.</div><div class="line"></div><div class="line">/**</div><div class="line"> * Thrift files can reference other Thrift files to include common struct</div><div class="line"> * and service definitions. These are found using the current path, or by</div><div class="line"> * searching relative to any paths specified with the -I compiler flag.</div><div class="line"> *</div><div class="line"> * Included objects are accessed using the name of the .thrift file as a</div><div class="line"> * prefix. i.e. shared.SharedObject</div><div class="line"> */</div><div class="line">include &quot;shared.thrift&quot;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Thrift files can namespace, package, or prefix their output in various</div><div class="line"> * target languages.</div><div class="line"> */</div><div class="line">namespace cpp tutorial</div><div class="line">namespace java tutorial</div><div class="line">php_namespace tutorial</div><div class="line">namespace perl tutorial</div><div class="line">namespace smalltalk.category Thrift.Tutorial</div><div class="line"></div><div class="line">/**</div><div class="line"> * Thrift lets you do typedefs to get pretty names for your types. Standard</div><div class="line"> * C style here.</div><div class="line"> */</div><div class="line">typedef i32 MyInteger</div><div class="line"></div><div class="line">/**</div><div class="line"> * Thrift also lets you define constants for use across languages. Complex</div><div class="line"> * types and structs are specified using JSON notation.</div><div class="line"> */</div><div class="line">const i32 INT32CONSTANT = 9853</div><div class="line">const map&lt;string,string&gt; MAPCONSTANT = &#123;&apos;hello&apos;:&apos;world&apos;, &apos;goodnight&apos;:&apos;moon&apos;&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * You can define enums, which are just 32 bit integers. Values are optional</div><div class="line"> * and start at 1 if not supplied, C style again.</div><div class="line"> *              ^ ThriftIDL page says &quot;If no constant value is supplied,</div><div class="line"> *   the value is either 0 for the first element, or one greater than the</div><div class="line"> *   preceding value for any subsequent element&quot; so I&apos;m guessing that&apos;s a bug.</div><div class="line"> *   PS: http://enel.ucalgary.ca/People/Norman/enel315_winter1997/enum_types/ states that if values are not supplied, they start at 0 and not 1.</div><div class="line"> */</div><div class="line">enum Operation &#123;</div><div class="line">  ADD = 1,</div><div class="line">  SUBTRACT = 2,</div><div class="line">  MULTIPLY = 3,</div><div class="line">  DIVIDE = 4</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Structs are the basic complex data structures. They are comprised of fields</div><div class="line"> * which each have an integer identifier, a type, a symbolic name, and an</div><div class="line"> * optional default value.</div><div class="line"> *</div><div class="line"> * Fields can be declared &quot;optional&quot;, which ensures they will not be included</div><div class="line"> * in the serialized output if they aren&apos;t set.  Note that this requires some</div><div class="line"> * manual management in some languages.</div><div class="line"> */</div><div class="line">struct Work &#123;</div><div class="line">  1: i32 num1 = 0,</div><div class="line">  2: i32 num2,</div><div class="line">  3: Operation op,</div><div class="line">  4: optional string comment,</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Structs can also be exceptions, if they are nasty.</div><div class="line"> */</div><div class="line">exception InvalidOperation &#123;</div><div class="line">  1: i32 what,</div><div class="line">  2: string why</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Ahh, now onto the cool part, defining a service. Services just need a name</div><div class="line"> * and can optionally inherit from another service using the extends keyword.</div><div class="line"> */</div><div class="line">service Calculator extends shared.SharedService &#123;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * A method definition looks like C code. It has a return type, arguments,</div><div class="line">   * and optionally a list of exceptions that it may throw. Note that argument</div><div class="line">   * lists and exception lists are specified using the exact same syntax as</div><div class="line">   * field lists in struct or exception definitions.  NOTE: Overloading of</div><div class="line">   * methods is not supported; each method requires a unique name.</div><div class="line">   */</div><div class="line"></div><div class="line">   void ping(),</div><div class="line"></div><div class="line">   i32 add(1:i32 num1, 2:i32 num2),</div><div class="line"></div><div class="line">   i32 calculate(1:i32 logid, 2:Work w) throws (1:InvalidOperation ouch),</div><div class="line"></div><div class="line">   /**</div><div class="line">    * This method has an oneway modifier. That means the client only makes</div><div class="line">    * a request and does not listen for any response at all. Oneway methods</div><div class="line">    * must be void.</div><div class="line">    *</div><div class="line">    * The server may execute async invocations of the same client in parallel/</div><div class="line">    * out of order.</div><div class="line">    */</div><div class="line">   oneway void zip(),</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * It&apos;s possible to declare more than one service per Thrift file.</div><div class="line"> */</div><div class="line">service CalculatorExtreme extends shared.SharedService &#123;</div><div class="line">    void pingExtreme(),</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * That just about covers the basics. Take a look in the test/ folder for more</div><div class="line"> * detailed examples. After you run this file, your generated code shows up</div><div class="line"> * in folders with names gen-&lt;language&gt;. The generated code isn&apos;t too scary</div><div class="line"> * to look at. It even has pretty indentation.</div><div class="line"> */</div></pre></td></tr></table></figure>
+<h1 id="参考链接-1"><a href="#参考链接-1" class="headerlink" title="参考链接"></a>参考链接</h1><p>[1] <a href="https://thrift.apache.org/docs/install/os_x#install-libevent" target="_blank" rel="external">Apache Thrift OS X Setup</a><br>[2] <a href="http://www.cnblogs.com/peterpanzsy/p/4210127.html" target="_blank" rel="external">mac os x10.10 安装thrift</a><br>[3] <a href="https://thrift.apache.org/tutorial/cpp" target="_blank" rel="external">Thrift C++ Tutorial</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/配置/" rel="tag">#配置</a>
+          
+            <a href="/tags/Thrift/" rel="tag">#Thrift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/15/technique/csharp-call-cpp/" rel="next" title="在 C# 中使用 C++">
+                <i class="fa fa-chevron-left"></i> 在 C# 中使用 C++
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/22/article/fast-slow-in-work/" rel="prev" title="工作中的快与慢">
+                工作中的快与慢 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/05/technique/config-thrift/"
+           data-title="Thrift 配置" data-url="http://yoursite.com/2016/07/05/technique/config-thrift/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Chris" />
+          <p class="site-author-name" itemprop="name">Chris</p>
+          <p class="site-description motion-element" itemprop="description">只问事实是什么，不要被愿望蒙蔽</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/huanglianghua" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://bitbucket.org/huanglianghua" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/HiDeepChris" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/withchris" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Thrift-配置"><span class="nav-number">1.</span> <span class="nav-text">Thrift 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-下-Thrift-配置"><span class="nav-number">1.1.</span> <span class="nav-text">Mac 下 Thrift 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">快速安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动安装"><span class="nav-number">1.1.2.</span> <span class="nav-text">手动安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-Boost"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">安装 Boost</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-libevent"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">安装 libevent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-Apache-Thrift"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">安装 Apache Thrift</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu-下-Thrift-配置"><span class="nav-number">1.2.</span> <span class="nav-text">Ubuntu 下 Thrift 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">1.2.1.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖"><span class="nav-number">1.2.2.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Thrift"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装 Thrift</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thrift-C-实例"><span class="nav-number">2.</span> <span class="nav-text">Thrift C++ 实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本过程"><span class="nav-number">2.1.</span> <span class="nav-text">基本过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thrift-脚本"><span class="nav-number">2.2.</span> <span class="nav-text">Thrift 脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Server-程序"><span class="nav-number">2.3.</span> <span class="nav-text">Server 程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Client-程序"><span class="nav-number">2.4.</span> <span class="nav-text">Client 程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">2.5.</span> <span class="nav-text">编译</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thrift-脚本语法"><span class="nav-number">3.</span> <span class="nav-text">Thrift 脚本语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接-1"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chris</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"huanglianghua"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7eik32CeJNsuqVLmyGKbp15x-gzGzoHsz", "ObNcIpCSgyUYwV2wtjdMyyfV");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+</body>
+</html>

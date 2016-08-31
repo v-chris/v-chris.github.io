@@ -1,0 +1,892 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C++,C#," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="综述C# 调用 C++ 中的函数或类是通过调用其 dll 来实现的。对于 unmanaged C++，我们在每个函数前加上 dllexport，并在 C# 代码中通过 dllimport 和 extern static 来调用 dll 中的函数。这样需要为每个函数添加 dllimport/dllexport，很不方便。注意 C# 是可以直接调用 C++/CLR (managed C++) 的 dl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 C# 中使用 C++">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/technique/csharp-call-cpp/index.html">
+<meta property="og:site_name" content="Chris's Notes">
+<meta property="og:description" content="综述C# 调用 C++ 中的函数或类是通过调用其 dll 来实现的。对于 unmanaged C++，我们在每个函数前加上 dllexport，并在 C# 代码中通过 dllimport 和 extern static 来调用 dll 中的函数。这样需要为每个函数添加 dllimport/dllexport，很不方便。注意 C# 是可以直接调用 C++/CLR (managed C++) 的 dl">
+<meta property="og:updated_time" content="2016-08-18T08:33:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在 C# 中使用 C++">
+<meta name="twitter:description" content="综述C# 调用 C++ 中的函数或类是通过调用其 dll 来实现的。对于 unmanaged C++，我们在每个函数前加上 dllexport，并在 C# 代码中通过 dllimport 和 extern static 来调用 dll 中的函数。这样需要为每个函数添加 dllimport/dllexport，很不方便。注意 C# 是可以直接调用 C++/CLR (managed C++) 的 dl">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6290405842793530000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/15/technique/csharp-call-cpp/"/>
+
+  <title> 在 C# 中使用 C++ | Chris's Notes </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chris's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'vWocM3XbKMp_7UJo5Y2m','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                在 C# 中使用 C++
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T16:00:00+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术日志/" itemprop="url" rel="index">
+                    <span itemprop="name">技术日志</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/technique/csharp-call-cpp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/technique/csharp-call-cpp/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/15/technique/csharp-call-cpp/" class="leancloud_visitors" data-flag-title="在 C# 中使用 C++">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><p>C# 调用 C++ 中的函数或类是通过调用其 dll 来实现的。对于 unmanaged C++，我们在每个函数前加上 <code>dllexport</code>，并在 C# 代码中通过 <code>dllimport</code> 和 <code>extern static</code> 来调用 dll 中的函数。这样需要为每个函数添加 <code>dllimport/dllexport</code>，很不方便。注意 C# 是可以直接调用 C++/CLR (managed C++) 的 dll 的。因此，为了两端（调用端/实现端）代码编写的便利，我们可以用 C++/CLR 作为联系 unmanaged C++ 和 C# 的 wrapper，写出更简洁的代码。</p>
+<a id="more"></a>
+<h1 id="C-调用-C-代码-——-dllimport-方式"><a href="#C-调用-C-代码-——-dllimport-方式" class="headerlink" title="C# 调用 C++ 代码 —— dllimport 方式"></a>C# 调用 C++ 代码 —— dllimport 方式</h1><h2 id="编写-C-DLL"><a href="#编写-C-DLL" class="headerlink" title="编写 C++ DLL"></a>编写 C++ DLL</h2><p>新建 VC++ 控制台空项目，项目类型选 DLL，新建 MathFuncDll.h 和 MathFuncDll.cpp 文件，代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MathFuncsDll.h</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdexcept&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">namespace</span> MathFuncs</div><div class="line">&#123;</div><div class="line">   <span class="keyword">extern</span> <span class="string">"C"</span> &#123; <span class="number">__</span>declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">Add</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>; &#125;</div><div class="line">   <span class="keyword">extern</span> <span class="string">"C"</span> &#123; <span class="number">__</span>declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">Subtract</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>; &#125;</div><div class="line">   <span class="keyword">extern</span> <span class="string">"C"</span> &#123; <span class="number">__</span>declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">Multiply</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>; &#125;</div><div class="line">   <span class="keyword">extern</span> <span class="string">"C"</span> &#123; <span class="number">__</span>declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">Divide</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MathFuncsDll.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MathFuncsDll.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> MathFuncs</div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">Add</span><span class="params">( <span class="keyword">double</span> a, <span class="keyword">double</span> b )</span></span></div><div class="line">    &#123; <span class="keyword">return</span> a+b; &#125;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">Subtract</span><span class="params">( <span class="keyword">double</span> a, <span class="keyword">double</span> b )</span></span></div><div class="line">    &#123; <span class="keyword">return</span> a-b; &#125;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">Multiply</span><span class="params">( <span class="keyword">double</span> a, <span class="keyword">double</span> b )</span></span></div><div class="line">    &#123; <span class="keyword">return</span> a*b; &#125;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">Divide</span><span class="params">( <span class="keyword">double</span> a, <span class="keyword">double</span> b )</span></span></div><div class="line">    &#123;</div><div class="line">       <span class="keyword">if</span> ( b == <span class="number">0</span> )</div><div class="line">            <span class="keyword">throw</span> invalid_argument(<span class="string">"b cannot be zero!"</span>);</div><div class="line">       <span class="keyword">return</span> a/b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译后在 Debug 或 Release 文件夹中可找到 MathFuncsDll.dll 文件。</p>
+<h2 id="编写-C-测试程序"><a href="#编写-C-测试程序" class="headerlink" title="编写 C# 测试程序"></a>编写 C# 测试程序</h2><p>新建 C# 控制台项目，Program.cs 的代码如下：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System;</div><div class="line"><span class="keyword">using</span> System.Collections.Generic;</div><div class="line"><span class="keyword">using</span> System.Linq;</div><div class="line"><span class="keyword">using</span> System.Text;</div><div class="line"><span class="keyword">using</span> System.Threading.Tasks;</div><div class="line"><span class="keyword">using</span> System.Runtime.InteropServices;</div><div class="line"></div><div class="line"><span class="keyword">namespace</span> <span class="title">cppdll_test_csharp</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">class</span> <span class="title">Program</span></div><div class="line">    &#123;</div><div class="line">        [DllImport(<span class="string">"C:/Users/huanglianghua/Documents/Visual Studio 2012/Projects/cppdll_test/Debug/cppdll_test.dll"</span>,</div><div class="line">            CallingConvention = CallingConvention.Cdecl)]</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">Add</span>(<span class="params"><span class="keyword">double</span> a, <span class="keyword">double</span> b</span>)</span>;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">double</span> c = Add(<span class="number">10</span>, <span class="number">10</span>);</div><div class="line">            Console.WriteLine(c);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行后输出 <code>20</code> 代表程序正确。</p>
+<h1 id="C-调用-C-代码-——-C-wrapper-方式"><a href="#C-调用-C-代码-——-C-wrapper-方式" class="headerlink" title="C# 调用 C++ 代码 —— C++ wrapper 方式"></a>C# 调用 C++ 代码 —— C++ wrapper 方式</h1><p>以上代码能够正确运行。但是需要 <code>dllimport/dllexport</code>，且调用时每个函数需要定义 <code>static extern</code>。当函数数量不多时，这种方法容易使用。但当函数数量很大时，调用会很不方便。</p>
+<p>注意到虽然 C# 调用普通的 C++ 代码（unmanaged C++）很麻烦，但 C# 是可以直接调用 C++/CLI (managed C++) 的 dll 的。C++/CLI 即托管的 C++ —— 以 C++ 的名义写 C#。CLI 是 Common Language Infrastructure 的缩写。所以我们可以将 C++/CLI 作为 C++ 和 C# 的接口 —— 为 C++ 程序写一个 wrapper，然后在 C# 里直接调用。</p>
+<p>简而言之，需要三个项目：</p>
+<ul>
+<li>一个 VC++ 项目，采用 unmanaged C++，编写主要的函数体；</li>
+<li>一个 VC++ 项目，采用 managed C++，编写 C++/CLI wrapper；</li>
+<li>一个 VC# 项目，测试 C++/CLI wrapper 的 dll。</li>
+</ul>
+<h2 id="C-主体代码"><a href="#C-主体代码" class="headerlink" title="C++ 主体代码"></a>C++ 主体代码</h2><p>建立 VC++ 空项目，项目类型为控制台应用程序，建立 MathFuncs.h, MathFuncs.cpp 和 main.cpp 文件，其中 main.cpp 主要用于测试 MathFuncs.cpp 中的函数。代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MathFuncs.h</span></div><div class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdexcept&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">class</span> MyMathFuncs</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="function"><span class="keyword">double</span> <span class="title">Add</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line">	<span class="function"><span class="keyword">double</span> <span class="title">Subtract</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line">	<span class="function"><span class="keyword">double</span> <span class="title">Multiply</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line">	<span class="function"><span class="keyword">double</span> <span class="title">Divide</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MathFuncs.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cli_cpp.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">double</span> MyMathFuncs::Add(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">&#123; <span class="keyword">return</span> a+b; &#125;</div><div class="line"></div><div class="line"><span class="keyword">double</span> MyMathFuncs::Subtract(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">&#123; <span class="keyword">return</span> a-b; &#125;</div><div class="line"></div><div class="line"><span class="keyword">double</span> MyMathFuncs::Multiply(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">&#123; <span class="keyword">return</span> a*b; &#125;</div><div class="line"></div><div class="line"><span class="keyword">double</span> MyMathFuncs::Divide(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> ( b == <span class="number">0</span> )</div><div class="line">       <span class="keyword">throw</span> invalid_argument(<span class="string">"b cannot be zero!"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// main.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cli_cpp.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    MyMathFuncs* m = <span class="keyword">new</span> MyMathFuncs();</div><div class="line">    <span class="keyword">double</span> c = m-&gt;Add (<span class="number">10.1</span>,<span class="number">20.2</span>) ;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Result is %f\n"</span>, c);</div><div class="line">    <span class="built_in">free</span>(m);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码无误的话运行会出现 “Result is 30.300000”。</p>
+<h2 id="C-wrapper-代码"><a href="#C-wrapper-代码" class="headerlink" title="C++ wrapper 代码"></a>C++ wrapper 代码</h2><p>新建 VC++ CLI Class Library 项目 managedDllWrapper，修改 managedDllWrapper.h 和 managedDllWrapper.cpp 如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// managedDllWrapper.h</span></div><div class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"C:\Visual Studio 2012/Projects/MathFuncs/MathFuncs.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"C:\Visual Studio 2012/Projects/MathFuncs/MathFuncs.cpp"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> System;</div><div class="line"></div><div class="line"><span class="keyword">namespace</span> managedDllWrapper &#123;</div><div class="line">	<span class="keyword">public</span> ref <span class="keyword">class</span> MyMathFuncsWrapper</div><div class="line">    &#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">       <span class="comment">// constructor</span></div><div class="line">       MyMathFuncsWrapper();</div><div class="line"></div><div class="line">       <span class="comment">// wrapper methods</span></div><div class="line">       <span class="function"><span class="keyword">double</span> <span class="title">AddWrapper</span> <span class="params">( <span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line">       <span class="function"><span class="keyword">double</span> <span class="title">SubtractWrapper</span> <span class="params">( <span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line">       <span class="function"><span class="keyword">double</span> <span class="title">MultiplyWrapper</span> <span class="params">( <span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line">       <span class="function"><span class="keyword">double</span> <span class="title">DivideWrapper</span> <span class="params">( <span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line"></div><div class="line">       <span class="comment">// public variable</span></div><div class="line">       <span class="keyword">double</span> initVal;</div><div class="line"></div><div class="line">    <span class="keyword">private</span>:</div><div class="line">       MyMathFuncs* myCppClass; <span class="comment">// an instance</span></div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// managedDllWrapper.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"managedDllWrapper.h"</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"C:\Visual Studio 2012/Projects/MathFuncs/MathFuncs.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"C:\Visual Studio 2012/Projects/MathFuncs/MathFuncs.cpp"</span></span></div><div class="line"></div><div class="line"><span class="comment">// Constructor implementaion</span></div><div class="line">managedDllWrapper::MyMathFuncsWrapper::MyMathFuncsWrapper()</div><div class="line">&#123;</div><div class="line">    initVal = <span class="number">20.0</span>;</div><div class="line">    myCppClass = <span class="keyword">new</span> MyMathFuncs(); <span class="comment">//initiate C++ class's instance</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">double</span> managedDllWrapper::MyMathFuncsWrapper::AddWrapper ( <span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> myCppClass-&gt;Add(a,b);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">double</span> managedDllWrapper::MyMathFuncsWrapper::SubtractWrapper (<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> myCppClass-&gt;Subtract(a,b);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">double</span> managedDllWrapper::MyMathFuncsWrapper::MultiplyWrapper (<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> myCppClass-&gt;Multiply(a,b);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">double</span> managedDllWrapper::MyMathFuncsWrapper::DivideWrapper (<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> myCppClass-&gt;Divide(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以 Debug 或/和 Release 模式编译后会生成 managedDllWrapper.dll 文件。我们将在 C# 中使用它们。</p>
+<h2 id="C-测试代码"><a href="#C-测试代码" class="headerlink" title="C# 测试代码"></a>C# 测试代码</h2><p>新建 C# 控制台应用程序，在 <code>References</code> 中右键添加，选择 <code>Browse...</code> 找到 managedDllWrapper.dll 并添加，即可直接在 C# 代码中使用 dll 中的函数。C# 测试代码如下：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System;</div><div class="line"><span class="keyword">using</span> System.Collections.Generic;</div><div class="line"><span class="keyword">using</span> System.Linq;</div><div class="line"><span class="keyword">using</span> System.Text;</div><div class="line"><span class="keyword">using</span> System.Threading.Tasks;</div><div class="line"><span class="keyword">using</span> managedDllWrapper;</div><div class="line"></div><div class="line"><span class="keyword">namespace</span> <span class="title">testCSharpInterface</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">class</span> <span class="title">Program</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">static</span> MyMathFuncsWrapper mymath = <span class="keyword">new</span> MyMathFuncsWrapper();</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">double</span> c = mymath.initVal;</div><div class="line">            Console.WriteLine(c);</div><div class="line"></div><div class="line">            c = mymath.AddWrapper(c, c);</div><div class="line">            Console.WriteLine(c);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行无误应该出现结果 <code>20</code> 和 <code>40</code>。</p>
+<h1 id="C-调用-C-OpenCV-代码"><a href="#C-调用-C-OpenCV-代码" class="headerlink" title="C# 调用 C++ OpenCV 代码"></a>C# 调用 C++ OpenCV 代码</h1><p>在 rich UI 的 C# 中调用 rich efficiency 的 C++ OpenCV 代码，结合二者的优势。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://drthitirat.wordpress.com/2013/05/30/combine-gui-of-c-with-c-codes/" target="_blank" rel="external">Use C++ codes in a C# project — unmanaged C++ solution</a></li>
+<li>Youtube 视频 <a href="https://www.youtube.com/watch?v=hwmRtnJag4A" target="_blank" rel="external">DLL (C++) for C sharp (C#)</a></li>
+<li><a href="https://drthitirat.wordpress.com/2013/06/03/use-c-codes-in-a-c-project-wrapping-native-c-with-a-managed-clr-wrapper/" target="_blank" rel="external">Use C++ codes in a C# project — solution of wrapping native C++ with a managed CLR wrapper</a></li>
+<li><a href="https://drthitirat.wordpress.com/2013/06/06/use-opencv-c-codes-in-a-vc-project-solution-of-creating-a-managed-clr-wrapper/" target="_blank" rel="external">Use OpenCV C++ codes in a VC# project — solution of creating a managed CLR wrapper</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag">#C++</a>
+          
+            <a href="/tags/C/" rel="tag">#C#</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/08/technique/config-mysql/" rel="next" title="MySQL 配置">
+                <i class="fa fa-chevron-left"></i> MySQL 配置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/05/technique/config-thrift/" rel="prev" title="Thrift 配置">
+                Thrift 配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/15/technique/csharp-call-cpp/"
+           data-title="在 C# 中使用 C++" data-url="http://yoursite.com/2016/06/15/technique/csharp-call-cpp/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Chris" />
+          <p class="site-author-name" itemprop="name">Chris</p>
+          <p class="site-description motion-element" itemprop="description">只问事实是什么，不要被愿望蒙蔽</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/huanglianghua" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://bitbucket.org/huanglianghua" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/HiDeepChris" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/withchris" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-调用-C-代码-——-dllimport-方式"><span class="nav-number">2.</span> <span class="nav-text">C# 调用 C++ 代码 —— dllimport 方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编写-C-DLL"><span class="nav-number">2.1.</span> <span class="nav-text">编写 C++ DLL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写-C-测试程序"><span class="nav-number">2.2.</span> <span class="nav-text">编写 C# 测试程序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-调用-C-代码-——-C-wrapper-方式"><span class="nav-number">3.</span> <span class="nav-text">C# 调用 C++ 代码 —— C++ wrapper 方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-主体代码"><span class="nav-number">3.1.</span> <span class="nav-text">C++ 主体代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-wrapper-代码"><span class="nav-number">3.2.</span> <span class="nav-text">C++ wrapper 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-测试代码"><span class="nav-number">3.3.</span> <span class="nav-text">C# 测试代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-调用-C-OpenCV-代码"><span class="nav-number">4.</span> <span class="nav-text">C# 调用 C++ OpenCV 代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chris</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"huanglianghua"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7eik32CeJNsuqVLmyGKbp15x-gzGzoHsz", "ObNcIpCSgyUYwV2wtjdMyyfV");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+</body>
+</html>
